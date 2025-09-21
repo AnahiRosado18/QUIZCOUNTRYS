@@ -18,6 +18,13 @@
 --grad: linear-gradient(90deg, #E65895 0%, #BC6BE8 100%);
 }
 
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;   /* centra horizontal */
+  align-items: center;       /* centra vertical */
+
+}
 
 *{ 
   box-sizing: border-box; 
@@ -52,14 +59,13 @@ fixed;
 inset: 0; 
 z-index: -1;
 background: url('/src/assets/bg.jpg') center/cover no-repeat; /* reemplaza por el nombre real del recurso */
-opacity: .5; /* ajusta según tu imagen */
 }
 
 
 .container{ 
   max-width: var(--max); 
   margin: 0 auto; 
-  padding: 24px; 
+  padding-top: 8vh;
 }
 
 .app{ 
@@ -83,42 +89,30 @@ opacity: .5; /* ajusta según tu imagen */
   margin: 8px 0 12px; 
 }
 
-.subtitle{ font-size:24px; font-weight:600; margin:0; }
-.muted{ color: var(--muted); }
+.subtitle{ 
+  font-size:24px; 
+  font-weight:600;
+   margin:0; 
+  }
+
+.muted{ 
+  color: var(--muted); 
+}
 
 
 /* Card */
-.card{ background:#393F6E; border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-1); }
-
-
-.opt {
-  background: #343964;
-  border: 2px solid transparent;
-  border-radius: 12px;
-  padding: 12px;
-  font-size: 16px;
-  color: white;
-  transition: 0.3s;
+.card{ 
+  background:#393F6E; 
+  height: 60vh;
+  border-radius: var(--radius); 
+  padding: 32px; 
+  box-shadow: var(--shadow-1); 
 }
 
-.opt:hover {
-  background: linear-gradient(90deg, #EC4899, #8B5CF6);
-}
-
-.opt-correct {
-  border-color: #4ADE80; /* verde */
-  background: #22C55E33;
-}
-
-.opt-wrong {
-  border-color: #EF4444; /* rojo */
-  background: #EF444433;
-}
 
 .btn-primary:hover {
   opacity: 0.9;
 }
-
 
 .btn-primary {
   background: linear-gradient(90deg, #EC4899, #8B5CF6);
@@ -133,15 +127,51 @@ opacity: .5; /* ajusta según tu imagen */
 
 .nav{
   display: flex;
+  column-gap: 1vh;
+}
+
+
+.flag {
+  width: 80px;       /* ancho fijo */
+  height: auto;      /* mantiene proporción */
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,.2);
+  box-shadow: var(--shadow-2);
+}
+
+
+.flag {
+  width: 120px;   
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.2);
+  box-shadow: var(--shadow-2);
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.quiz-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 550;
 }
 
 
 .dot {
-  width: 36px;
-  height: 36px;
+  width: 50px;
+  height: 50px;
   border: none;
   border-radius: 50%;
-  background: #343964; /* gris */
+  background: #343964; 
+  font-weight: 500;
+  font-size: large;
   color: white;
   display: flex;
   align-items: center;
@@ -156,7 +186,7 @@ opacity: .5; /* ajusta según tu imagen */
 }
 
 .dot-answered {
-  background: linear-gradient(#E65895, #BC6BE8); /* verde */
+  background: linear-gradient(#E65895, #BC6BE8); 
 }
 
 
@@ -165,6 +195,149 @@ opacity: .5; /* ajusta según tu imagen */
   color: white;
   border-radius: 20px;
   padding: 6px 12px;
+  font-size: large;
+}
+
+/* Opciones en 2 columnas */
+.options.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* dos columnas iguales */
+  gap: 20px;
+}
+
+.opt {
+  background: #343964;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 16px;
+  color: #fff;
+  transition: background .2s ease, box-shadow .2s ease, transform .06s ease;
+  display: flex;                 /* texto + icono */
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 56px;
+}
+.opt:not(:disabled):hover { background: var(--opt-hover); }
+.opt:disabled { opacity: .95; cursor: default; }
+
+
+.opt:hover {
+  background: linear-gradient(90deg, #EC4899, #8B5CF6);
+}
+
+
+.opt-selected {
+  background: var(--grad);
+  border-color: transparent;
+}
+
+/* Texto e icono dentro del botón */
+.opt-label { flex: 1 1 auto; line-height: 1.35; }
+.opt-mark {
+  flex: 0 0 auto;
+  width: 28px; height: 28px;
+  border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.opt-mark img { width: 18px; height: 18px; display: block; }
+
+/*CONGRATS*/
+
+
+.result-card {
+  background-color: #393F6E;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px 32px;
+  padding-bottom: 50px;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 6vh;
+}
+
+.btn-fin{
+  background: linear-gradient(90deg, #EC4899, #8B5CF6);
+  border: none;
+  color: white;
   font-weight: bold;
-  font-size: 14px;
+  border-radius: 12px;
+  padding: 12px 24px;
+  cursor: pointer;
+
+}
+
+/*responsivo*/
+
+/* ====== Ajustes base fluidos ====== */
+.container { padding-inline: 16px; }
+.quiz-header h1 { font-size: clamp(20px, 2.4vw, 32px); }
+.points { font-size: clamp(12px, 1.6vw, 16px); padding: 8px 14px; }
+.prompt { font-size: clamp(16px, 1.8vw, 20px); }
+.opt { font-size: clamp(15px, 1.8vw, 16px); }
+
+/* ====== Desktop <= 1024px ====== */
+@media (max-width: 1024px){
+  .container { padding-top: 7vh; }
+  .card{
+    height: auto;              /* no forzar 60vh en tablet */
+    min-height: 56vh;
+    max-width: 720px;
+    padding: 36px 28px;
+    margin: 0 auto;
+  }
+  .nav{ flex-wrap: wrap; gap: 10px; }
+  .dot{ width: 46px; height: 46px; font-size: 16px; margin: 6px; }
+  .flag{ width: 100px; }
+}
+
+/* ====== Tablet <= 768px ====== */
+@media (max-width: 768px){
+  .container { padding-top: 6vh; }
+  .quiz-header{
+    margin-bottom: 28px;
+    gap: 12px;
+    flex-direction: column;      /* título arriba, puntos debajo a la derecha */
+    align-items: flex-start;
+  }
+  .points{ align-self: flex-end; }
+  .card{
+    max-width: 640px;
+    padding: 28px 20px;
+    min-height: auto;            /* más compacta en tablet */
+  }
+  .options.two-cols{ grid-template-columns: 1fr; } /* 2→1 columna */
+  .dot{ width: 42px; height: 42px; font-size: 15px; margin: 6px; }
+  .flag{ width: 96px; }
+}
+
+/* ====== Móvil <= 480px ====== */
+@media (max-width: 480px){
+  .container { padding-top: 4vh; }
+  .quiz-header{ margin-bottom: 20px; }
+  .quiz-header h1{ font-size: 20px; }
+  .points{ font-size: 12px; padding: 6px 10px; border-radius: 18px; }
+  .card{
+    padding: 22px 16px;
+    border-radius: 12px;
+    max-width: 92vw;
+    min-height: auto;
+  }
+  .nav{ gap: 8px; }
+  .dot{ width: 36px; height: 36px; font-size: 14px; margin: 4px; }
+  .prompt{ font-size: 16px; margin: 16px 0 20px; }
+  .opt{
+    min-height: 52px;
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .opt-mark{ width: 24px; height: 24px; }
+  .opt-mark img{ width: 16px; height: 16px; }
+  .flag{ width: 84px; }
+  .result-card{
+    max-width: 92vw;
+    padding: 24px 16px;
+    margin-top: 24px;
+  }
 }
