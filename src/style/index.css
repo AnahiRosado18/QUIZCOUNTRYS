@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
+
+:root{
+--max: 960px; 
+--gap: 16px; 
+--radius: 14px; 
+--border: #2b2f55;
+--text: #E2E4F3; 
+--muted: #B8BECD; 
+--bg: #343964; 
+--bg2: #393F6E;
+--opt: #3A3F6B; 
+--opt-hover: #454B77; 
+--success:#34D399; 
+--error:#F87171;
+--shadow-1: 0 10px 30px rgba(0,0,0,0.35); 
+--shadow-2: 0 6px 12px rgba(0,0,0,0.2);
+--grad: linear-gradient(90deg, #E65895 0%, #BC6BE8 100%);
+}
+
+
+*{ 
+  box-sizing: border-box; 
+}
+
+
+html, body, #root{
+   height: 100%; 
+  }
+
+
+body{ 
+  margin:0; 
+  font-family:'Be Vietnam Pro', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial; 
+  color: var(--text); 
+}
+
+
+/* Fondo con imagen del recurso */
+body::before{
+content:""; 
+position: fixed; 
+inset: 0; 
+z-index: -2;
+background: var(--bg);
+}
+
+body::after{
+content:""; 
+position: 
+fixed; 
+inset: 0; 
+z-index: -1;
+background: url('/src/assets/bg.jpg') center/cover no-repeat; /* reemplaza por el nombre real del recurso */
+opacity: .5; /* ajusta según tu imagen */
+}
+
+
+.container{ 
+  max-width: var(--max); 
+  margin: 0 auto; 
+  padding: 24px; 
+}
+
+.app{ 
+  min-height:100vh; 
+  display:flex; 
+  flex-direction:column; 
+}
+
+.main{ 
+  flex:1; 
+}
+
+.section{ 
+  display:grid; 
+  gap: var(--gap); 
+}
+
+.title{ 
+  font-size:32px; 
+  font-weight:700; 
+  margin: 8px 0 12px; 
+}
+
+.subtitle{ font-size:24px; font-weight:600; margin:0; }
+.muted{ color: var(--muted); }
+
+
+/* Card */
+.card{ background:#393F6E; border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-1); }
+
+
+.opt {
+  background: #343964;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 16px;
+  color: white;
+  transition: 0.3s;
+}
+
+.opt:hover {
+  background: linear-gradient(90deg, #EC4899, #8B5CF6);
+}
+
+.opt-correct {
+  border-color: #4ADE80; /* verde */
+  background: #22C55E33;
+}
+
+.opt-wrong {
+  border-color: #EF4444; /* rojo */
+  background: #EF444433;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+
+.btn-primary {
+  background: linear-gradient(90deg, #EC4899, #8B5CF6);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+
+.nav{
+  display: flex;
+}
+
+
+.dot {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #343964; /* gris */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.dot-current {
+  background: linear-gradient(#E65895, #BC6BE8);
+  border: none;
+}
+
+.dot-answered {
+  background: linear-gradient(#E65895, #BC6BE8); /* verde */
+}
+
+
+.points {
+  background: linear-gradient(90deg, #EC4899, #8B5CF6);
+  color: white;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-weight: bold;
+  font-size: 14px;
+}
