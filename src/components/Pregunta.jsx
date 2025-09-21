@@ -39,12 +39,12 @@ export default function Pregunta({ pregunta, usuarioRespuesta, manejarRespuesta 
 
               {showCheck && (
                 <span className="opt-mark ok" aria-hidden="true">
-                  <img src="./src/assets/Check_round_fill.svg" alt="" />
+                  <img src="./assets/Check_round_fill.svg" alt="Correcto" />
                 </span>
               )}
               {showCross && (
                 <span className="opt-mark bad" aria-hidden="true">
-                  <img src="./src/assets/Close_round_fill.svg" alt="" />
+                  <img src="./assets/Close_round_fill.svg" alt="Incorrecto" />
                 </span>
               )}
             </button>
@@ -54,3 +54,4 @@ export default function Pregunta({ pregunta, usuarioRespuesta, manejarRespuesta 
     </div>
   );
 }
+
