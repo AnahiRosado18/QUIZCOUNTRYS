@@ -298,9 +298,9 @@ background: url('/src/assets/bg.jpg') center/cover no-repeat; /* reemplaza por e
   .container { padding-top: 6vh; }
   .quiz-header{
     margin-bottom: 28px;
-    gap: 12px;
-    flex-direction: column;      /* título arriba, puntos debajo a la derecha */
+    gap: 12px; 
     align-items: flex-start;
+    flex-wrap: nowrap;
   }
   .points{ align-self: flex-end; }
   .card{
