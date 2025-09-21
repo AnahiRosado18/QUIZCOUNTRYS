@@ -58,7 +58,7 @@ position:
 fixed; 
 inset: 0; 
 z-index: -1;
-background: url('/src/assets/bg.jpg') center/cover no-repeat; /* reemplaza por el nombre real del recurso */
+background: url('/src/assets/bg.jpg') center/cover no-repeat;
 }
 
 
@@ -133,8 +133,8 @@ background: url('/src/assets/bg.jpg') center/cover no-repeat; /* reemplaza por e
 
 
 .flag {
-  width: 80px;       /* ancho fijo */
-  height: auto;      /* mantiene proporción */
+  width: 80px;       
+  height: auto;      
   object-fit: contain;
   border-radius: 6px;
   border: 1px solid rgba(255,255,255,.2);
@@ -202,7 +202,7 @@ background: url('/src/assets/bg.jpg') center/cover no-repeat; /* reemplaza por e
 /* Opciones en 2 columnas */
 .options.two-cols {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* dos columnas iguales */
+  grid-template-columns: 1fr 1fr; 
   gap: 20px;
 }
 
@@ -214,7 +214,7 @@ background: url('/src/assets/bg.jpg') center/cover no-repeat; /* reemplaza por e
   font-size: 16px;
   color: #fff;
   transition: background .2s ease, box-shadow .2s ease, transform .06s ease;
-  display: flex;                 /* texto + icono */
+  display: flex;               
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -278,11 +278,11 @@ background: url('/src/assets/bg.jpg') center/cover no-repeat; /* reemplaza por e
 .prompt { font-size: clamp(16px, 1.8vw, 20px); }
 .opt { font-size: clamp(15px, 1.8vw, 16px); }
 
-/* ====== Desktop <= 1024px ====== */
+/* Desktop */
 @media (max-width: 1024px){
   .container { padding-top: 7vh; }
   .card{
-    height: auto;              /* no forzar 60vh en tablet */
+    height: auto;              
     min-height: 56vh;
     max-width: 720px;
     padding: 36px 28px;
@@ -293,7 +293,7 @@ background: url('/src/assets/bg.jpg') center/cover no-repeat; /* reemplaza por e
   .flag{ width: 100px; }
 }
 
-/* ====== Tablet <= 768px ====== */
+/* Tablet */
 @media (max-width: 768px){
   .container { padding-top: 6vh; }
   .quiz-header{
@@ -306,14 +306,14 @@ background: url('/src/assets/bg.jpg') center/cover no-repeat; /* reemplaza por e
   .card{
     max-width: 640px;
     padding: 28px 20px;
-    min-height: auto;            /* más compacta en tablet */
+    min-height: auto;            
   }
-  .options.two-cols{ grid-template-columns: 1fr; } /* 2→1 columna */
+  .options.two-cols{ grid-template-columns: 1fr; } 
   .dot{ width: 42px; height: 42px; font-size: 15px; margin: 6px; }
   .flag{ width: 96px; }
 }
 
-/* ====== Móvil <= 480px ====== */
+/* Móvil */
 @media (max-width: 480px){
   .container { padding-top: 4vh; }
   .quiz-header{ margin-bottom: 20px; }
