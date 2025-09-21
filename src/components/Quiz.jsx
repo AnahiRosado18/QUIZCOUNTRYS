@@ -6,12 +6,12 @@ import { API, buildQuizQuestions } from "../utils.js";
 export default function Quiz() {
   const [preguntas, setQuestions] = useState([]);
   const [preguntaActual, setPreguntaActual] = useState(0);
-  const [userAnswers, setUserAnswers] = useState([]); // [{choice, correct}] | undefined
+  const [userAnswers, setUserAnswers] = useState([]); 
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
 
-  // Obtener preguntas desde la API con fetch
+  // Cargar preguntas
   useEffect(() => {
     let alive = true;
     (async () => {
@@ -36,6 +36,7 @@ export default function Quiz() {
     return () => { alive = false; };
   }, []);
 
+  // Puntaje
   const score = useMemo(
     () =>
       userAnswers.reduce(
@@ -45,24 +46,26 @@ export default function Quiz() {
     [userAnswers, preguntas]
   );
 
+  // Cuando todas estén contestadas -> resultados
+  useEffect(() => {
+    if (preguntas.length && userAnswers.every(a => a !== undefined)) {
+      setShowResult(true);
+    }
+  }, [userAnswers, preguntas]);
+
+  // Responder (solo marca y muestra feedback; NO avanza)
   const handleAnswer = (choice) => {
-    if (userAnswers[preguntaActual]) return; // no permitir re-responder
+    if (userAnswers[preguntaActual]) return; // ya respondida
     const q = preguntas[preguntaActual];
     const next = [...userAnswers];
     next[preguntaActual] = { choice, correct: q.correct };
     setUserAnswers(next);
   };
 
-  const manejarSiguientePregunta = () =>
-    setPreguntaActual((p) => Math.min(p + 1, preguntas.length - 1));
-
-  const handlePrevQuestion = () =>
-    setPreguntaActual((p) => Math.max(p - 1, 0));
-
-  const handleFinishQuiz = () => setShowResult(true);
-
+  // Navegación por círculos
   const jumpTo = (i) => setPreguntaActual(i);
 
+  // Rejugar
   const playAgain = async () => {
     try {
       setLoading(true);
@@ -96,54 +99,47 @@ export default function Quiz() {
   }
 
   return (
-    <div className="wrap">
-      {/* Navegación libre por preguntas */}
-      <div className="nav">
-        {preguntas.map((_, i) => {
-          const answered = userAnswers[i] != null;
-          const curr = i === preguntaActual;
-          return (
-            <button
-              key={i}
-              className={`dot ${curr ? "dot-current" : answered ? "dot-answered" : ""}`}
-              onClick={() => jumpTo(i)}
-              title={answered ? "Contestada" : "Sin responder"}
-            >
-              {i + 1}
-            </button>
-          );
-        })}
-      </div>
+    <div className="container">
+      {/* Header con título + puntos */}
+        <header className="quiz-header">
+          <h1>Country Quiz</h1>
+          <div className="points">🏆 {score}/{preguntas.length} Points</div>
+        </header>
 
-      {/* La pregunta actual */}
-      {preguntas[preguntaActual] && (
-        <Pregunta
-          pregunta={preguntas[preguntaActual]}
-          usuarioRespuesta={userAnswers[preguntaActual]}
-          manejarRespuesta={handleAnswer}
-          index={preguntaActual}
-          total={preguntas.length}
-        />
-      )}
 
-      {/* Controles inferior */}
-      <div className="row space-between mt">
-        <button className="btn" onClick={handlePrevQuestion} disabled={preguntaActual === 0}>
-          Anterior
-        </button>
-        {preguntaActual < preguntas.length - 1 ? (
-          <button className="btn primary" onClick={manejarSiguientePregunta}>
-            Siguiente
+      <div className="wrap">
+        {/* Pregunta actual */}
+        <div className="card">
+
+        <div className="nav" style={{justifyContent:"center" }}>
+            {preguntas.map((_, i) => {
+              const answered = userAnswers[i] != null;
+              const curr = i === preguntaActual;
+              return (
+                <button
+                  key={i}
+                  className={`dot ${curr ? "dot-current" : answered ? "dot-answered" : ""}`}
+                  onClick={() => jumpTo(i)}
+                  title={answered ? "Contestada" : "Sin responder"}
+                >
+                  {i + 1}
           </button>
-        ) : (
-          <button className="btn success" onClick={handleFinishQuiz}>
-            Finalizar
-          </button>
+            );
+          })}
+        </div>
+
+        {preguntas[preguntaActual] && (
+            <Pregunta
+              pregunta={preguntas[preguntaActual]}
+              usuarioRespuesta={userAnswers[preguntaActual]}
+              manejarRespuesta={handleAnswer}
+              index={preguntaActual}
+              total={preguntas.length}
+            />
         )}
-      </div>
 
-      <div className="muted small center mt">
-        Aciertos: <strong>{score}</strong> / {preguntas.length}
+        </div>
+
       </div>
     </div>
   );
