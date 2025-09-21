@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
-import Pregunta from "./Pregunta.jsx";
-import Felicitaciones from "./Felicitaciones.jsx";
+import Pregunta from "./Question.jsx";
+import Felicitaciones from "./Congrats.jsx";
 import { API, buildQuizQuestions } from "../utils.js";
 
 export default function Quiz() {
