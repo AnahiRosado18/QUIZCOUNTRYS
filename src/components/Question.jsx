@@ -20,10 +20,10 @@ export default function Pregunta({ pregunta, usuarioRespuesta, manejarRespuesta 
           const chosen = usuarioRespuesta?.choice === opt;
           const isCorrect = pregunta.correct === opt;
 
-          // El seleccionado SIEMPRE con degradado
+          
           const stateClass = chosen ? "opt-selected" : "";
 
-          // Íconos (solo feedback visual)
+          
           const showCheck = wasAnswered && isCorrect;                
           const showCross = wasAnswered && chosen && !isCorrect;      
 
@@ -54,5 +54,6 @@ export default function Pregunta({ pregunta, usuarioRespuesta, manejarRespuesta 
     </div>
   );
 }
+
 
 
