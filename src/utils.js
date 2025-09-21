@@ -44,7 +44,7 @@ function buildQuestionTemplates(country, pool) {
     if (opts.length === 4) {
       qs.push({
         type: "capital",
-        prompt: `¿What is the capital city of ${name}?`,
+        prompt: `What is the capital city of ${name}?`,
         mediaFlag: flag,
         correct: capital,
         options: shuffle(opts),
@@ -58,7 +58,7 @@ function buildQuestionTemplates(country, pool) {
     if (opts.length === 4) {
       qs.push({
         type: "flag",
-        prompt: "¿Wich country does this flag belong?",
+        prompt: "Wich country does this flag belong?",
         mediaFlag: flag,
         correct: name,
         options: shuffle(opts),
@@ -72,7 +72,7 @@ function buildQuestionTemplates(country, pool) {
     if (opts.length === 4) {
       qs.push({
         type: "region",
-        prompt: `¿Wich region does it belong to ${name}?`,
+        prompt: `Wich region does it belong to ${name}?`,
         mediaFlag: flag,
         correct: region,
         options: shuffle(opts),
@@ -106,3 +106,4 @@ export function buildQuizQuestions(countries, total = 10) {
   }
   return unique.slice(0, total);
 }
+
