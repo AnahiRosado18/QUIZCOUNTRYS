@@ -1,4 +1,3 @@
-// Utils + construcción de preguntas
 export const API =
   "https://restcountries.com/v3.1/all?fields=name,capital,flags,cca3,region,population";
 
@@ -106,4 +105,5 @@ export function buildQuizQuestions(countries, total = 10) {
   }
   return unique.slice(0, total);
 }
+
 
