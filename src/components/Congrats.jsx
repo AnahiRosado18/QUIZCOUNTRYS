@@ -5,7 +5,7 @@ export default function Felicitaciones({ respuestascorrectas, preguntastotales, 
   return (
     <div className="result-card">
       <div>
-        <img src="/congrats.png" alt="🎉" />
+        <img src="./src/assets/congrats.png" alt="🎉" />
       </div>
       <h2 style={{ marginBottom: "5vh", fontWeight: "400"}}>Congrats! You completed the quiz.</h2>
       <div className="score" style={{ marginBottom: "5vh"}}>You answer {respuestascorrectas}/{preguntastotales}  correctly.</div>
@@ -13,4 +13,3 @@ export default function Felicitaciones({ respuestascorrectas, preguntastotales, 
     </div>
   );
 }
-
