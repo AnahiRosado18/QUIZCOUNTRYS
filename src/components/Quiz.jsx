@@ -46,7 +46,7 @@ export default function Quiz() {
     [userAnswers, preguntas]
   );
 
-  // Cuando todas estén contestadas -> resultados
+  // Cuando todas estén contestadas 
   useEffect(() => {
     if (preguntas.length && userAnswers.every(a => a !== undefined)) {
       setShowResult(true);
@@ -100,7 +100,7 @@ export default function Quiz() {
 
   return (
     <div className="container">
-      {/* Header con título + puntos */}
+      
         <header className="quiz-header">
           <h1>Country Quiz</h1>
           <div className="points">🏆 {score}/{preguntas.length} Points</div>
@@ -144,3 +144,4 @@ export default function Quiz() {
     </div>
   );
 }
+
