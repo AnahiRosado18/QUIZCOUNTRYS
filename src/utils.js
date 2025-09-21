@@ -44,7 +44,7 @@ function buildQuestionTemplates(country, pool) {
     if (opts.length === 4) {
       qs.push({
         type: "capital",
-        prompt: `¿Cuál es la capital de ${name}?`,
+        prompt: `¿What is the capital city of ${name}?`,
         mediaFlag: flag,
         correct: capital,
         options: shuffle(opts),
@@ -58,7 +58,7 @@ function buildQuestionTemplates(country, pool) {
     if (opts.length === 4) {
       qs.push({
         type: "flag",
-        prompt: "¿A qué país pertenece esta bandera?",
+        prompt: "¿Wich country does this flag belong?",
         mediaFlag: flag,
         correct: name,
         options: shuffle(opts),
@@ -72,7 +72,7 @@ function buildQuestionTemplates(country, pool) {
     if (opts.length === 4) {
       qs.push({
         type: "region",
-        prompt: `¿A qué región pertenece ${name}?`,
+        prompt: `¿Wich region does it belong to ${name}?`,
         mediaFlag: flag,
         correct: region,
         options: shuffle(opts),
