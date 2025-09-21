@@ -1,57 +1,56 @@
 import React from "react";
 
-export default function Pregunta({ pregunta, usuarioRespuesta, manejarRespuesta, index, total }) {
-  return (
-    <div className="card">
-      <div className="row space-between">
-        <h2>Pregunta {index + 1} de {total}</h2>
-        <span className="muted">Tipo: {pregunta.type}</span>
-      </div>
+export default function Pregunta({ pregunta, usuarioRespuesta, manejarRespuesta }) {
+  const wasAnswered = usuarioRespuesta != null;
 
+  return (
+    <div>
+
+      <p className="prompt" style={{ textAlign: "center", fontSize:"large" }} >{pregunta.prompt}</p>
+
+      {/* Bandera centrada */}
       {pregunta.mediaFlag && (
-        <div className="row gap">
+        <div style={{ textAlign: "center", marginBottom: 16 }}>
           <img src={pregunta.mediaFlag} alt="Bandera" className="flag" />
-          <span className="muted">Bandera de referencia</span>
         </div>
       )}
 
-      <p className="prompt">{pregunta.prompt}</p>
-
-      <div className="options">
+      <div className="options two-cols">
         {pregunta.options.map((opt, i) => {
           const chosen = usuarioRespuesta?.choice === opt;
           const isCorrect = pregunta.correct === opt;
-          const wasAnswered = usuarioRespuesta != null;
 
-          let extra = "";
-          if (wasAnswered) {
-            if (isCorrect) extra = "opt-correct";
-            if (chosen && !isCorrect) extra = "opt-wrong";
-          }
+          // El seleccionado SIEMPRE con degradado
+          const stateClass = chosen ? "opt-selected" : "";
+
+          // Íconos (solo feedback visual)
+          const showCheck = wasAnswered && isCorrect;                
+          const showCross = wasAnswered && chosen && !isCorrect;      
 
           return (
             <button
               key={i}
-              className={`opt ${extra}`}
+              className={`opt ${stateClass}`}
               disabled={wasAnswered}
               onClick={() => manejarRespuesta(opt)}
+              aria-pressed={chosen ? "true" : "false"}
             >
-              {opt}
+              <span className="opt-label">{opt}</span>
+
+              {showCheck && (
+                <span className="opt-mark ok" aria-hidden="true">
+                  <img src="./src/assets/Check_round_fill.svg" alt="" />
+                </span>
+              )}
+              {showCross && (
+                <span className="opt-mark bad" aria-hidden="true">
+                  <img src="./src/assets/Close_round_fill.svg" alt="" />
+                </span>
+              )}
             </button>
           );
         })}
       </div>
-
-      {usuarioRespuesta && (
-        <div className="feedback">
-          {usuarioRespuesta.choice === pregunta.correct ? (
-            <span className="ok">¡Correcto!</span>
-          ) : (
-            <span className="bad">Incorrecto.</span>
-          )}
-          <span className="muted"> Respuesta: <strong>{pregunta.correct}</strong></span>
-        </div>
-      )}
     </div>
   );
 }
