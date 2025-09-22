@@ -1,12 +1,60 @@
-# React + Vite
+# 🌎✨ Country Quiz  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un proyecto interactivo de preguntas y respuestas sobre países 🌍, desarrollado como parte del **Reto [Country Quiz de DevChallenges](https://devchallenges.io/)**.  
+La aplicación está construida con **React + Vite**, consume la API de **REST Countries** y ofrece una experiencia moderna, rápida y responsiva.  
 
-Currently, two official plugins are available:
+🔗 **Demo en vivo:** [quizcountrys.vercel.app](https://quizcountrys.vercel.app/)  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🖼️ Vista previa  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Pantalla del Quiz | Pantalla de Resultados |
+|-------------------|-------------------------|
+| ![Quiz Screenshot](./src/assets/screenshot-quiz.png) | ![Result Screenshot](./src/assets/screenshot-result.png) |
+
+---
+
+## 🎯 Objetivo del reto  
+
+El reto consistía en crear una aplicación web que:  
+
+- 🎨 **Respetara el diseño dado** (responsive y visualmente atractivo).  
+- 🌍 **Generara 10 preguntas** aleatorias sobre países.  
+- 🏳️ Mostrara **banderas, capitales o regiones** como parte de las preguntas.  
+- ✅ Diera **retroalimentación inmediata** (✔️ correcto, ❌ incorrecto).  
+- 🔢 Permitiera **navegar entre preguntas** con botones circulares.  
+- 🏆 Mostrara una **pantalla final de resultados**, con opción de volver a jugar.  
+
+---
+
+## ⚙️ Funcionalidades principales  
+
+- 🔄 **Generación dinámica de preguntas** con la API de [REST Countries](https://restcountries.com/).  
+- ✨ **Diseño responsivo** para escritorio y móvil.  
+- 🎭 Retroalimentación visual: degradado en las opciones seleccionadas y ✔️❌ como feedback.  
+- 📊 Indicador de progreso y puntaje en tiempo real.  
+- 🖼️ Manejo de assets (iconos, imágenes y banderas).  
+- 🎮 Opción de **"Play Again"** para reiniciar el quiz.  
+
+---
+
+## 🛠️ Tecnologías utilizadas  
+
+- ⚡ **React + Vite** → Frontend rápido y moderno.  
+- 🌐 **Axios** → Para consumir la API de países.  
+- 🎨 **CSS con variables y media queries** → Estilos personalizados y responsivos.  
+- 🖼️ **Google Fonts** (Be Vietnam Pro) → Tipografía principal.  
+- 🚀 **Vercel** → Hosting y despliegue continuo.  
+
+---
+
+## 📂 Estructura del proyecto  
+
+```bash
+src/
+ ├── assets/           # Imágenes, íconos, fondos
+ ├── components/       # Componentes (Pregunta, Quiz, Felicitaciones, etc.)
+ ├── App.jsx           # Lógica principal
+ ├── main.jsx          # Renderizado inicial
+ └── index.css         # Estilos globales
