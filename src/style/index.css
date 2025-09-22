@@ -342,3 +342,54 @@ background: url('/src/assets/bg.jpg') center/cover no-repeat;
     margin-top: 24px;
   }
 }
+
+/* Asegura centrado y recorte en la card de resultados */
+.result-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centra horizontal TODO el contenido */
+  text-align: center;
+  overflow: hidden;      /* evita que algo se salga visualmente */
+}
+
+/* Contenedor redondo del ícono, siempre centrado */
+.result-icon{
+  width: 100px;
+  height: 100px;
+  border-radius: 999px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* centra la imagen dentro */
+  margin: 0 auto 24px;      /* centra el contenedor en la card */
+  flex: 0 0 auto;
+}
+
+/* La imagen JAMÁS debe desbordarse ni “moverse” a la izquierda */
+.result-icon img{
+  max-width: 72%;   /* controla tamaño relativo al círculo */
+  max-height: 72%;
+  height: auto;
+  width: auto;
+  display: block;   /* elimina alineación en línea que desplaza */
+  margin: 0 auto;   /* por si acaso: centro extra */
+}
+
+/* Móvil: haz todo un poco más compacto y centrado */
+@media (max-width: 480px){
+  .result-card{
+    max-width: 92vw;
+    padding: 24px 16px;
+    border-radius: 12px;
+  }
+  .result-icon{
+    width: 84px;
+    height: 84px;
+    margin-bottom: 20px;
+  }
+  .result-icon img{
+    max-width: 70%;
+    max-height: 70%;
+  }
+}
+
