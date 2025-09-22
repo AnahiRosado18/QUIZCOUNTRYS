@@ -47,4 +47,7 @@ El reto consistía en crear una aplicación web que:
 
 ---
 
+## 👨‍💻 Autor  
+Desarrollado por **Anahí Cristal Rosado Keb**  
+🔗 [GitHub](https://github.com/tu-usuario)  
 
