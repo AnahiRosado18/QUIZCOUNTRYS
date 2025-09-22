@@ -3,7 +3,7 @@
 Un proyecto interactivo de preguntas y respuestas sobre países 🌍, desarrollado como parte del **Reto [Country Quiz de DevChallenges](https://devchallenges.io/)**.  
 La aplicación está construida con **React + Vite**, utilizando la API de **REST Countries**.  
 
-🔗 **Demo edel proyecto:** [quizcountrys.vercel.app](https://quizcountrys.vercel.app/)  
+🔗 **Demo del proyecto:** [quizcountrys.vercel.app](https://quizcountrys.vercel.app/)  
 
 ---
 
