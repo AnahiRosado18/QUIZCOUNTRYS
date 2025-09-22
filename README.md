@@ -11,7 +11,7 @@ La aplicación está construida con **React + Vite**, utilizando la API de **RES
 
 | Pantalla del Quiz | Pantalla de Resultados |
 |-------------------|-------------------------|
-| <img width="1919" height="861" alt="image" src="https://github.com/user-attachments/assets/10bad8f1-a0d2-4529-be22-c3eb7b0f3773" />|<img width="1919" height="861" alt="image" src="https://github.com/user-attachments/assets/be1091cd-2ebe-4eaa-83a4-20e73da3ec99" />|
+| <img width="1919" height="861" alt="image" src="https://github.com/user-attachments/assets/10bad8f1-a0d2-4529-be22-c3eb7b0f3773" />|<img width="1919" height="846" alt="image" src="https://github.com/user-attachments/assets/e93c521c-7985-4248-b96c-f2d04686b8e3" />|
 
 ---
 
